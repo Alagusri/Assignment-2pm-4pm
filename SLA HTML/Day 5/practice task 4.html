@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>semantic layout example</title>
+</head>
+<body>
+    <header>
+        <div class="brand">
+    <h1>my website</h1>
+    <p class="tagline">simple semantic layout example</p>
+    </div>
+    <nav aria-label="main navigation">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+        <article id="home">
+            <h2>welcome</h2>
+            <p>This is the main article area. use <code>&lt;article&gt;</code> for self-contained content like blog posts, new items, or long-form content. </p>
+        </article>
+        <aside aria-label="related information">
+            <h3>related</h3>
+            <p>short related links, ads, or automation bio go here.</p>
+        </aside>
+
+        <section id="projets">
+            <h2>Projects</h2>
+            <p>showcase your projects or portfolio items here.</p>
+        </section> 
+    </main>
+
+    <footer>
+        <p>&copy; <time datetime="2025-11-20">2025</time> My website - <a href="privacy">Privacy</a></p>
+    </footer>
+</body>
+</html>
