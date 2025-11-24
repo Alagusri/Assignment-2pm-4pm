@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Grid Row</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 40px;
+  }
+
+  .photo-row {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: #fff;
+    border-radius: 10px;
+    align-items: center;     
+    overflow-x: auto;          
+    white-space: nowrap;
+  }
+
+  .photo-row img {
+    height: 140px;             
+    width: auto;
+    border-radius: 8px;
+    object-fit: cover;        
+    flex-shrink: 0;           
+  }
+
+  @media (max-width: 600px) {
+    .photo-row img {
+      height: 100px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<h2>Responsive Photo Grid Row</h2>
+
+<div class="photo-row">
+  <img src="https://via.placeholder.com/300x200" alt="Photo 1">
+  <img src="https://via.placeholder.com/200x300" alt="Photo 2">
+  <img src="https://via.placeholder.com/350x220" alt="Photo 3">
+  <img src="https://via.placeholder.com/400x260" alt="Photo 4">
+  <img src="https://via.placeholder.com/250x400" alt="Photo 5">
+</div>
+
+</body>
+</html>

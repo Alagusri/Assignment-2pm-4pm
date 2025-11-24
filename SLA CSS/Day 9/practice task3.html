@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toolbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 10px;
+}
+
+.center-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-btn{
+    flex: 1;
+} 
+.right-btn {
+  flex: 1;
+}
+
+.center-btn {
+  flex: 1;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+  <button class="left-btn">Left</button>
+  <button class="center-btn">Center</button>
+  <button class="right-btn">Right</button>
+</div>
+
+</body>
+</html>

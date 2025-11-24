@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+  display: flex;
+  gap: 20px;
+  width: 600px;
+  border: 2px solid #000;
+}
+
+.item {
+  padding: 15px;
+  background: #e3e3e3;
+}
+
+.fixed {
+  width: 150px;
+}
+
+.text {
+  min-width: 0; 
+  overflow-wrap: break-word;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+  <div class="item fixed">Sidebar</div>
+  <div class="item text">This is a very long text that would normally overflow unless the correct min-width setting is applied.</div>
+</div>
+
+</body>
+</html>

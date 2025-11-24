@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Toolbar</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background: #f5f5f5;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    gap: 20px;
+  }
+
+
+  .filters select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+
+  .search {
+    flex: 1;   
+    display: flex;
+    justify-content: center;
+  }
+
+  .search input {
+    width: 60%;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+
+  .actions {
+    margin-left: auto; 
+    display: flex;
+    gap: 12px;
+  }
+
+  .actions button {
+    padding: 8px 14px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .actions button.delete {
+    background: #e63946;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="toolbar">
+  
+  <div class="filters">
+    <select>
+      <option>Status: All</option>
+      <option>Active</option>
+      <option>Pending</option>
+      <option>Completed</option>
+    </select>
+
+    <select>
+      <option>Category: All</option>
+      <option>Finance</option>
+      <option>Marketing</option>
+      <option>HR</option>
+    </select>
+  </div>
+
+  <div class="search">
+    <input type="text" placeholder="Search...">
+  </div>
+
+  <div class="actions">
+    <button>Add</button>
+    <button class="delete">Delete</button>
+  </div>
+
+</div>
+
+</body>
+</html>
