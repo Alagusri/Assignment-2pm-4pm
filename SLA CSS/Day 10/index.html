@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS colors, backgrounds,text,fonts and positioning</title>
+    <style>
+        /*hex */
+        .rr{
+        
+            color:hsl(200, 50%, 40%);
+        }
+            *{
+                background-color: aqua;
+        }
+
+        .container{
+            display: flex;
+            gap: 15px;
+    
+        }
+        .box{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            background-color: red;
+        }
+        .hero{
+            height: 200px;
+            background: linear-gradient(to right,#3498db, #70b107 );
+
+        }
+        P{
+            font-family: "Stack Sans Notch" sans-serif;
+            font-size: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,23,0.3);
+        }
+        .mystrey{
+            font-family: "Stack Sans Notch", sans-serif;
+            font-optical-sizing: auto;
+            font-weight:100;
+            font-style: normal;
+        }
+   </style>
+</head>
+<body>
+    <h1>Css colors,background, text, fonts and positioning</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap" rel="stylesheet">
+
+    <div class="container">
+        <div class="box" style="background-color: red;">box1</div>
+        <div class="box" style="background-color: #3498db;">box2</div>
+        <div class="box" style="background-color: rgb(255,150,3);">box3</div>
+        <div class="box" style="background-color: hsl(120,70%,40%);">box4</div>
+    </div>
+<p>
+    Lorem ipsum dolor sit amet
+    <br/>
+    Lorem ipsum dolor sit amet
+
+</p>
+    <h1 class="best">Happy hearts</h1>
+    <h1 class="rr">Lorem ipsum dolor sit amet</h1>
+    <h2 class="rr">Lorem ipsum dolor sit amet</h2>
+    <h1 class="hero"></h1>
+   
+</body>
+</html>

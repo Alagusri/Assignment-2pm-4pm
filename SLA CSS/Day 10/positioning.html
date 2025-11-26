@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning</title>
+    <style>
+        .box{
+            width: 120px;
+            height: 60px;
+            background-color: lightblue;
+            margin: 60px;
+            position: static;
+            top:50%;
+        }
+        .rr{
+            width: 120px;
+            height: 60px;
+            background-color: rgb(75,122,209);
+            position: relative;
+            bottom: 20px;
+            top:20px;
+            left: 40px;
+            
+        }
+        .parent{
+            width: 300px;
+            height: 200px;
+            background-color: lightgray;
+            margin: 20px;
+            position: relative;
+            margin: 50px;
+        }
+        .child{
+            bottom: 10px;
+            width: 120px;
+            height: 50%;
+            background-color: crimson;
+            position: absolute;
+        }
+        .fixed-btn{
+            width: 120px;
+            padding: 10px;
+            position: fixed;
+            columns: white;
+            background-color: plum;
+            top: 20px;
+            bottom: 20px;
+        }
+        .x1{
+             width: 150px;
+            height: 100px;
+            top: 20px;
+            bottom: 20px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Static</div>
+    <div class="rr">relative</div>
+    <div class="parent">
+        <div class="child">
+            Absolute
+        </div>
+    </div>
+    <button class="fixed">Help</button>
+    <div class="box x1"></div>
+    <div class="box x2"></div>
+    <div class="box x3"></div>
+</body>
+</html>
