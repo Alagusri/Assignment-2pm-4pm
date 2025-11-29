@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grids Layout</title>
+    <style>
+        .container{
+            display: grid;
+            background:linear-gradient(purple ,rgb(247, 8, 168),darkblue);
+            padding: 10px;
+            gap: 10px;
+            grid-template-areas:"header header header header header header"
+            "menu  main main main main right" 
+            "menu footer footer footer footer footer" ;
+        }
+        .container div{
+            background:linear-gradient(pink,aqua,plum) ;
+            columns:#0f0220;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .items1{
+            grid-area: header;
+            border:5px solid   darkblue;
+            border-style: double;
+        }
+        .items2{
+            grid-area: menu;
+            border:5px solid   darkblue;
+            border-style: double;
+        }
+        .items3{
+            grid-area: main;
+            border:5px solid   darkblue;
+            border-style: double
+        }
+        .items4{
+            grid-area: right;
+            border:5px solid   darkblue;
+            border-style: double;
+        }
+        .items5{
+            grid-area: footer;
+            border:5px solid   darkblue;
+            border-style: double;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items1">Header</div>
+        <div class="items2">Menu</div>
+        <div class="items3">Main</div>
+        <div class="items4">Right</div>
+        <div class="items5">Footer</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>items</title>
+    <style>
+        .container
+        {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 15px;
+            gap: 5px;
+            border-color: blueviolet;
+            background-color: plum;
+            
+        }
+        .container div{
+            background-color: purple;
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+        }
+        .items1{
+            grid-column-start: 1;
+            grid-column-end: 4;
+            border: 5px solid blueviolet;
+            border-style: dashed;
+        }
+        .items2{
+            grid-area: 2;
+            grid-row-start: 3;
+            border: 5px solid blueviolet;
+            border-style: dashed;
+        }
+        .items3{
+            border: 5px solid blueviolet;
+            border-style:dashed;
+        }
+        .items4{
+            border: 5px solid blueviolet;
+            border-style: dashed;
+        }
+        .items5{
+            border: 5px solid blueviolet;
+            border-style: dashed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items1">1</div>
+        <div class="items2">2</div>
+        <div class="items3">3</div>
+        <div class="items4">4</div>
+        <div class="items5">5</div>
+    </div>
+
+</body>
+</html>
