@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Landing Page</title>
+<style>
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "left right"
+    "footer footer";
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  min-height: 100px;
+}
+.header { grid-area: header; background:#0077ff; color:#fff; padding:30px; text-align:center; }
+.left { grid-area: left; background:#eee; padding:20px; }
+.right { grid-area: right; background:#ddd; padding:20px; }
+.footer { grid-area: footer; background:#0077ff; color:#fff; padding:20px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">Landing Page Header</div>
+  <div class="left">Left Section Content</div>
+  <div class="right">Right Section Content</div>
+  <div class="footer">Footer</div>
+</div>
+</body>
+</html>

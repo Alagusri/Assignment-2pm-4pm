@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Span Example</title>
+<style>
+.grid-span {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.wide {
+  grid-column: span 2;
+  background: lightgreen;
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.grid-span div {
+  background: lightyellow;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>Grid Item Spanning 2 Columns</h2>
+<div class="grid-span">
+  <div class="wide">Wide Item</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+
+</body>
+</html>

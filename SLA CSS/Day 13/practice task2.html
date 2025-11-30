@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Grid Gap</title>
+<style>
+.grid-gap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.grid-gap div {
+  background: pink;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h2>Grid with 20px Gap</h2>
+<div class="grid-gap">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+</div>
+
+</body>
+</html>
