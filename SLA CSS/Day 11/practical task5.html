@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-template-areas</title>
+    <style>
+        .layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+  gap: 10px;
+}
+
+.header { grid-area: header; background: lightgreen; }
+.sidebar { grid-area: sidebar; background: lightblue; }
+.content { grid-area: content; background: lightyellow; }
+.footer { grid-area: footer; background: lightcoral; }
+
+
+    </style>
+</head>
+<body>
+    <div class="layout">
+  <header class="header">HEADER</header>
+  <aside class="sidebar">SIDEBAR</aside>
+  <main class="content">CONTENT</main>
+  <footer class="footer">FOOTER</footer>
+</div>
+
+</body>
+</html>

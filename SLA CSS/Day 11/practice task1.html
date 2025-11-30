@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>block inline</title>
     <style>
-        .block{
-            border: 10px;
-            margin: 5px;
-            width: 100px;
-            height: 100px;
-            display: inline;
-        }
-        .inline{
-            border: 10px;
-            margin: 5px;
-            width: 100px;
-            height: 100px;
-            display: block;
-        }
+        .full-block {
+    display: block;
+    width: 100px;
+    background: lightblue;
+    padding: 10px;
+}
+
+      .inline-text {
+    display: inline;
+    background: yellow;
+}
+
     </style>
 </head>
 <body>
-    <span class="inline">Inline</span>
-    <span class="block">Block</span>
+    <div class="full-block">I am a full-width block element</div>
+
+<p>
+  This is a paragraph with an 
+  <span class="inline-text">inline element</span>
+   inside it.
+</p>
+
 </body>
 </html>

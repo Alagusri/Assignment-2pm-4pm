@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex item with align self</title>
+    <style>
+        .flex-align {
+  display: flex;
+  height: 120px;
+  background: #eee;
+}
+
+.box1, .box2, .box3 {
+  padding: 10px;
+}
+
+.box1 { background: pink; }
+.box2 {
+  background: lightgreen;
+  align-self: flex-end;
+}
+.box3 { background: skyblue; }
+
+    </style>
+</head>
+<body>
+    <div class="flex-align">
+  <div class="box1">Item 1</div>
+  <div class="box2">Item 2</div>
+  <div class="box3">Item 3</div>
+</div>
+
+</body>
+</html>
