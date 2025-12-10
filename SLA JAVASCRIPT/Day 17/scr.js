@@ -35,62 +35,66 @@
     //must be intialized at the time of Declaration
      //const pi=3.14;
 //number
-let age=21;
-let price=19.99;
+//let age=21;
+//let price=19.99;
 // string
-let name="sri"
+//let name="sri"
 
 //boolean
-let isStudent=true;
-let isLoggedIn=false;
+//let isStudent=true;
+//let isLoggedIn=false;
 
 //null
 
-let data=null;
-console.log(data);
+//let data=null;
+//console.log(data);
 
 //undefined
 
-let result;
-console.log(result);
+//let result;
+//console.log(result);
 
 //symbol
 
-let id=symbol("12345");
-let id2=symbol("12345");
+//let id=symbol("12345");
+//let id2=symbol("12345");
 
-console.log(id === id2); //false
+//console.log(id === id2); //false
 
 //bigint
 
-let bigNumber=900724746778990n;
-let a=1n;
+//let bigNumber=900724746778990n;
+//let a=1n;
 
-console.log(bigNumber + a);
+//console.log(bigNumber + a);
 
 //object
 
-let user=
-{
-    name:"sri",
-    age:21,
-    isadmin:true
-}
+// let object=
+//{
+//    name:"sri",
+//    age:21,
+//    isadmin:true
+//}
 
-console.log(user.name);
-console.log(user.age);
+//console.log(user.name);
+//console.log(user.age);
 
 //Array
 
-let colors=["red" , "green" , " blue" , 123, true, null, undefined, {name:"test"}];
+//let colors=["red" , "green" , " blue" , 123, true, null, undefined, {name:"test"}];
 
-console.log(typeof colors);
+//console.log(typeof colors);
 
-functions greet (a,b)
-{
-    retutn (a + b)
-}
-console.log(greet(10,40));
+//functions greet (a,b)
+//{
+//    retutn (a + b)
+//}
+//console.log(greet(10,40));
+
+const numbers =[1,2,3,4,[55,66,77,88,[999,888,777,666,[6.8]]],6]
+
+console.log(numbers[4][4][4][4]));
 
 //operators
  //arithmetic operator
