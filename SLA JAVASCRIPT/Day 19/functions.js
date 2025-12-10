@@ -80,5 +80,5 @@ function greet(name, callback){
 function sayGoodbye(){
     console.log("Goodbye");
 }
-greet(Love, sayGoodbye)
+greet("Love", sayGoodbye)
 
