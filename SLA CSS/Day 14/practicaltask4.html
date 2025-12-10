@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+  <style>
+    .footer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 40px;
+      background: #111;
+      color: #fff;
+    }
+
+    @media(max-width: 768px) {
+      .footer { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<footer class="footer">
+  <div><h3>About</h3><p>Company info...</p></div>
+  <div><h3>Links</h3><p>Home, Services...</p></div>
+  <div><h3>Support</h3><p>FAQ, Contact...</p></div>
+  <div><h3>Follow</h3><p>Social media...</p></div>
+</footer>
+
+</body>
+</html>

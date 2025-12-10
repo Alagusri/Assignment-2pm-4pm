@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>column</title>
+</head>
+<body>
+    
+</body>
+</html>
+<style>
+.container {
+  display: flex;
+  gap: 20px;
+}
+.col {
+  flex: 1;
+  background: #ddd;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="col">Column 1</div>
+  <div class="col">Column 2</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+<style>
+body { margin: 0; font-family: Arial; }
+
+header {
+  background: black;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 80px 30px;
+  text-align: center;
+  background: #f4f4f4;
+}
+.hero h1 {
+  font-size: 48px;
+}
+
+.projects {
+  padding: 40px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.project {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ddd;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .projects {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>My Portfolio</h2>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Hello, I’m a Web Developer</h1>
+  <p>I create clean and responsive websites.</p>
+</div>
+
+<section class="projects">
+  <div class="project">Project 1</div>
+  <div class="project">Project 2</div>
+  <div class="project">Project 3</div>
+  <div class="project">Project 4</div>
+  <div class="project">Project 5</div>
+  <div class="project">Project 6</div>
+</section>
+
+<footer style="text-align:center; padding:20px; background:#222; color:#fff;">
+  © 2025 My Portfolio
+</footer>
+
+</body>
+</html>

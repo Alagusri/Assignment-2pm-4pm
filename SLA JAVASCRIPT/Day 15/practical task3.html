@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table</title>
+<style>
+body { margin:0; font-family: Arial; }
+.pricing {
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+}
+.price-box {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px #ddd;
+}
+.price {
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px){
+  .pricing {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="pricing">
+  <div class="price-box">
+    <h3>Basic</h3>
+    <div class="price">$9</div>
+    <p>Good for starters</p>
+  </div>
+
+  <div class="price-box">
+    <h3>Standard</h3>
+    <div class="price">$19</div>
+    <p>Most popular plan</p>
+  </div>
+
+  <div class="price-box">
+    <h3>Premium</h3>
+    <div class="price">$29</div>
+    <p>Best for business</p>
+  </div>
+</div>
+
+</body>
+</html>

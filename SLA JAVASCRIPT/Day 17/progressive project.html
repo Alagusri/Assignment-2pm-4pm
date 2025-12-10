@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Project Integration</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, button { margin: 5px 0; padding: 5px; }
+        #result { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Interactive Project Example</h1>
+
+
+    <label>Enter your age: </label>
+    <input type="number" id="ageInput" placeholder="e.g., 20"><br>
+
+   
+    <label>Enter bill amount: </label>
+    <input type="number" id="billInput" placeholder="e.g., 150"><br>
+
+    <button onclick="processInputs()">Submit</button>
+
+    <div id="result"></div>
+
+    <script>
+        function processInputs() {
+           
+            let age = Number(document.getElementById("ageInput").value);
+            let bill = Number(document.getElementById("billInput").value);
+
+            let messages = [];
+
+            
+            if (age <= 0 || isNaN(age)) {
+                messages.push("Please enter a valid age.");
+            } else {
+              
+                if (age < 18) {
+                    messages.push("You are a child.");
+                } else if (age <= 60) {
+                    messages.push("You are an adult.");
+                } else {
+                    messages.push("You are a senior.");
+                }
+            }
+
+            if (bill <= 0 || isNaN(bill)) {
+                messages.push("Please enter a valid bill amount.");
+            } else {
+                let tax = bill * 0.1; 
+                let total = bill + tax;
+                messages.push(`Your total bill with tax is $${total.toFixed(2)}.`);
+            }
+
+            document.getElementById("result").innerHTML = messages.join("<br>");
+        }
+    </script>
+</body>
+</html>

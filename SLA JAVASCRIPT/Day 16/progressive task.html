@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Progressive Project</title>
+<style>
+  body { font-family: Arial; padding: 20px; }
+  button { padding: 8px 15px; cursor: pointer; margin: 5px 0; }
+  #hoverBox { width:100px; height:100px; background:salmon; margin-top:10px; transition:0.3s; }
+  #hoverBox:hover { background:lightgreen; transform:scale(1.1); }
+</style>
+</head>
+<body>
+
+<h2>Mini Project</h2>
+
+<p id="msg">Click button!</p>
+<button id="btn">Show Message</button>
+
+<form id="form">
+  <input type="text" id="name" placeholder="Name" required>
+  <button type="submit">Submit</button>
+</form>
+<p id="formMsg"></p>
+
+
+<div id="hoverBox"></div>
+
+<script>
+console.log("Script loaded");
+
+
+document.getElementById("btn").addEventListener("click", () => {
+  console.log("Button clicked");
+  document.getElementById("msg").textContent = "Hello! JS works!";
+});
+
+
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  console.log("Form submitted:", name);
+  document.getElementById("formMsg").textContent = `Thanks, ${name}!`;
+  e.target.reset();
+});
+
+
+const box = document.getElementById("hoverBox");
+box.addEventListener("mouseenter", () => console.log("Hover start"));
+box.addEventListener("mouseleave", () => console.log("Hover end"));
+</script>
+
+</body>
+</html>

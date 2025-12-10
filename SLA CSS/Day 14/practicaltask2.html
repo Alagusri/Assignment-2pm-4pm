@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+  <style>
+    body { font-family: Arial; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .service-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    @media(max-width: 768px) {
+      .services { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="services">
+  <div class="service-box"><h3>Web Design</h3><p>Modern & clean UI designs.</p></div>
+  <div class="service-box"><h3>Development</h3><p>High-quality coding services.</p></div>
+  <div class="service-box"><h3>Branding</h3><p>Build your digital identity.</p></div>
+</section>
+
+</body>
+</html>

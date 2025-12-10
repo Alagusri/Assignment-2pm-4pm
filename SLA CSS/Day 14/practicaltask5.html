@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+  <style>
+    .product-page {
+      display: flex;
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .product-page img {
+      width: 45%;
+      border-radius: 10px;
+    }
+
+    .product-details { width: 50%; }
+
+    .product-details h2 { margin-bottom: 10px; }
+    .product-details p { margin-bottom: 15px; }
+    .price { font-size: 22px; font-weight: bold; margin-bottom: 20px; }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      background: #ff5722;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Mobile */
+    @media(max-width: 768px){
+      .product-page { flex-direction: column; }
+      .product-page img, .product-details { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="product-page">
+  <img src="https://via.placeholder.com/400" />
+  
+  <div class="product-details">
+    <h2>Wireless Headphones</h2>
+    <p>High-quality sound with noise cancellation.</p>
+    <p class="price">$129</p>
+    <button>Add to Cart</button>
+  </div>
+</section>
+
+</body>
+</html>
