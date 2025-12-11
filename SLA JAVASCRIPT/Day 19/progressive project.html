@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progressive JS Integration</title>
+</head>
+<body>
+
+<h2 id="result">Result will appear here</h2>
+<button id="btn">Calculate Total</button>
+
+<script>
+
+(function () {
+
+   
+    function add(a, b) {
+        return a + b;
+    }
+
+    const discount = amount => amount * 0.1;
+
+    const prices = [100, 200, 300];
+    const total = prices.reduce((sum, p) => sum + p, 0); 
+
+    document.getElementById("btn").addEventListener("click", () => {
+
+        const finalAmount = add(total, -discount(total));
+
+       
+        document.getElementById("result").innerText = 
+            "Final Total: ₹" + finalAmount;
+    });
+
+})();
+</script>
+
+</body>
+</html>
