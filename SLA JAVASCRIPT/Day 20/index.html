@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object in js</title>
+</head>
+<body>
+
+    <script>
+        const student={
+        name:"sri",
+        age: 21,
+        isActive: false,
+        coursetaken:["mongo", "express", "react", "node"],
+        calculatedays:function(a,b){
+            return a+b
+        }
+        }
+        const{name, age, isActive} = student
+        const ar=60;
+        console.log(ar);
+
+        console.log(student.age);
+    </script>
+</body>
+</html>
