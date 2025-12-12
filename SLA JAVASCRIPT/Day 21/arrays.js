@@ -2,6 +2,6 @@ let nums = [1,2,3]
 
 //nums.forEach(n => console.log(n))
 
-let doubled = nums.map(n => n*2);
+let events = nums.filter(n => n%2 ===  0);
 
-console.log(doubled);
+console.log(events);
