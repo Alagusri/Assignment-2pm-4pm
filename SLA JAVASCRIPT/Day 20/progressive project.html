@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Listing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .product {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My Products</h2>
+  <div id="productList"></div>
+
+  <script>
+   
+    const basicProduct = {
+      name: "Laptop",
+      price: 55000,
+      description: "High performance laptop"
+    };
+
+    console.log(basicProduct);
+
+   
+    class Product {
+      constructor(name, price, description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+      }
+
+      displayProduct(container) {
+        container.innerHTML += `
+          <div class="product">
+            <h3>${this.name}</h3>
+            <p>${this.description}</p>
+            <strong>₹${this.price}</strong>
+          </div>
+        `;
+      }
+    }
+
+    
+    class DigitalProduct extends Product {
+      constructor(name, price, description, fileSize) {
+        super(name, price, description);
+        this.fileSize = fileSize;
+      }
+
+      displayProduct(container) {
+        container.innerHTML += `
+          <div class="product">
+            <h3>${this.name} (Digital)</h3>
+            <p>${this.description}</p>
+            <p>File Size: ${this.fileSize} MB</p>
+            <strong>₹${this.price}</strong><br>
+            <button onclick="alert('Downloading ${this.name}')">
+              Download
+            </button>
+          </div>
+        `;
+      }
+    }
+
+   
+    const p1 = new Product("Laptop", 55000, "High performance laptop");
+    const p2 = new Product("Mobile", 20000, "Android smartphone");
+    const p3 = new Product("Headphones", 3000, "Noise cancelling");
+
+    const ebook = new DigitalProduct(
+      "JavaScript eBook",
+      499,
+      "Learn JavaScript from basics",
+      15
+    );
+
+   
+    const productList = document.getElementById("productList");
+
+    const products = [p1, p2, p3, ebook];
+
+    products.forEach(product => {
+      product.displayProduct(productList);
+    });
+
+  </script>
+
+</body>
+</html>
