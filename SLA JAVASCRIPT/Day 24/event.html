@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event building and capturing</title>
+</head>
+<body>
+    <div id="parent">
+        parent
+        <div id="child">child</div>
+    </div>
+
+    <script>
+
+        const child=document.getElementById("child");
+        const parent=document.getElementById("parent")
+
+        child.addEventListener("click" , ()=>{
+            alert("child clicked");
+        })
+
+        parent.addEventListener("click" , ()=>{
+            alert("parent clicked");
+        })
+    </script>
+    
+</body>
+</html>

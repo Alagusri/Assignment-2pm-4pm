@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Event</title>
+</head>
+<body>
+    <form id="form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="emali">Email</label>
+        <input type="text" id="email" name="email">
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age">
+        <label for="gender">Gender</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <button type="submit" value="submit">Submit </button>
+            
+    </form>
+
+    <script>
+
+        document.getElementById("myform").addEventListener("submit", (e)=>{
+            e.preventDefault();
+
+            alert("form submitted");
+        })
+
+        const clip = document.getElementById("clip")
+        clip.addEventListener("copy" , ()=>{
+            alert("text copied")
+        })
+    </script>
+
+
+</body>
+</html>
