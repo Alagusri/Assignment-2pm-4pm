@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Names</title>
+</head>
+<body>
+
+<ul id="productList"></ul>
+
+<script>
+  const products = [
+    { name: "Laptop", price: 55000 },
+    { name: "Phone", price: 15000 },
+    { name: "Headset", price: 2000 },
+    { name: "Monitor", price: 12000 }
+  ];
+
+  const list = document.getElementById("productList");
+
+  products.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p.name;
+    list.appendChild(li);
+  });
+</script>
+
+</body>
+</html>

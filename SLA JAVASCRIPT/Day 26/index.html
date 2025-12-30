@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="LoadData()">Load users</button>
+    <ul id="users"></ul>
+    
+    <hr>
+
+    <script>
+
+        function LoadData(){
+            fetch("")
+
+            .then(response => response.json())
+            .then(data => {
+                const list=document.getElementById("users")
+                list.innerHTML=""
+
+                data.forEach(user => {
+                    const li=document.createElement("li");
+                    li.textContent=user.name + " - " + user.email;
+                    list.appendChild(li)
+                });
+            })
+            .catch(error => console.log(erro))
+        }
+
+        const user = {
+            name:"sri",
+            age:21,
+            role:"student"
+        };
+
+        localStorage.setItem("userData", JSON.stringify(user))
+        const storedUser = JSON.parse(localStorage.getItem("userData"))
+        console.log(storedUser.name)
+        console.log(storedUser.role)
+
+        localStorage.removeItem("userData")
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Listing</title>
+</head>
+<body>
+
+    <h2>My Skills</h2>
+    <ul id="skillList"></ul>
+
+    <h2>All Products / Projects</h2>
+    <ul id="productList"></ul>
+
+    <h2>Products Below ₹500</h2>
+    <ul id="filteredList"></ul>
+
+    <h3 id="totalPrice"></h3>
+
+<script>
+   
+    const skills = ["UI/UX Design", "Java Fullstack", "Python Basics", "Machine Learning", "Communication"];
+
+   
+    const skillList = document.getElementById("skillList");
+    skills.forEach(skill => {
+        skillList.innerHTML += `<li>${skill}</li>`;
+    });
+
+   
+    const items = [
+        { name: "Portfolio Website", price: 0 },
+        { name: "E-Commerce UI Kit", price: 450 },
+        { name: "ML Retention Model", price: 300 },
+        { name: "Figma Design Pack", price: 800 },
+        { name: "Resume Builder App", price: 200 }
+    ];
+
+    
+    const productList = document.getElementById("productList");
+    items.forEach(item => {
+        productList.innerHTML += `<li>${item.name} — ₹${item.price}</li>`;
+    });
+
+    
+    const cheapItems = items.filter(item => item.price < 500);
+    const filteredList = document.getElementById("filteredList");
+    cheapItems.forEach(item => {
+        filteredList.innerHTML += `<li>${item.name} — ₹${item.price}</li>`;
+    });
+
+    
+    const total = items.reduce((sum, item) => sum + item.price, 0);
+    document.getElementById("totalPrice").innerText = `Total Price: ₹${total}`;
+</script>
+
+</body>
+</html>

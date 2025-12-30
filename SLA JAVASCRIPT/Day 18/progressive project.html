@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progressive JS Integration Demo</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  input, button, select { padding: 8px; margin: 5px 0; width: 200px; }
+  .error { color: red; font-size: 14px; }
+  .box { margin-top: 20px; padding: 15px; border: 1px solid #ddd; width: 230px; }
+</style>
+</head>
+<body>
+
+<h2>Form Validation</h2>
+<input type="text" id="nameInput" placeholder="Enter name">
+<div id="nameError" class="error"></div>
+<button onclick="validateForm()">Submit</button>
+
+<div class="box">
+  <h3>Calculator</h3>
+  <input type="number" id="num1" placeholder="Number 1">
+  <input type="number" id="num2" placeholder="Number 2">
+  <select id="operation">
+    <option value="add">Add</option>
+    <option value="sub">Subtract</option>
+    <option value="mul">Multiply</option>
+    <option value="div">Divide</option>
+  </select>
+  <button onclick="runCalc()">Calculate</button>
+  <div id="calcResult"></div>
+</div>
+
+<div class="box">
+  <h3>Counter</h3>
+  <div id="countDisplay">0</div>
+  <button onclick="increase()">Increase</button>
+  <button onclick="decrease()">Decrease</button>
+</div>
+
+<h2>Product Filter (< 500)</h2>
+<select id="filterSelect" onchange="showFiltered()">
+  <option value="all">All Products</option>
+  <option value="cheap">Price < 500</option>
+</select>
+<ul id="productList"></ul>
+<div><b>Total Price:</b> ₹<span id="totalPrice">0</span></div>
+
+<h2>Find Highest Score</h2>
+<button onclick="findTopper()">Show Topper</button>
+<div id="topperResult"></div>
+
+<script>
+// ----- Form Validation using IF -----
+function validateForm() {
+  const name = document.getElementById("nameInput").value;
+  const errorBox = document.getElementById("nameError");
+
+  if (name.trim() === "") {
+    errorBox.textContent = "Name cannot be empty!";
+  } else if (name.length < 3) {
+    errorBox.textContent = "Name must be at least 3 characters!";
+  } else {
+    errorBox.textContent = "";
+    alert("Form Submitted Successfully!");
+  }
+}
+
+// ----- Calculator using Conditions -----
+function runCalc() {
+  const a = Number(document.getElementById("num1").value);
+  const b = Number(document.getElementById("num2").value);
+  const op = document.getElementById("operation").value;
+  let res;
+
+  if (op === "add") res = a + b;
+  else if (op === "sub") res = a - b;
+  else if (op === "mul") res = a * b;
+  else if (op === "div") res = b !== 0 ? a / b : "Cannot divide by 0";
+
+  document.getElementById("calcResult").textContent = "Result: " + res;
+}
+
+// ----- Counter using IF -----
+let count = 0;
+function increase() {
+  count++;
+  document.getElementById("countDisplay").textContent = count;
+}
+function decrease() {
+  if (count > 0) count--;
+  document.getElementById("countDisplay").textContent = count;
+}
+
+// ----- Array Loop + Filter + Reduce + DOM -----
+const products = [
+  { name: "UI Template", price: 450 },
+  { name: "Laptop Skin", price: 650 },
+  { name: "Java Course", price: 499 },
+  { name: "Mouse", price: 300 },
+  { name: "Headset", price: 1200 }
+];
+
+function renderList(list) {
+  const ul = document.getElementById("productList");
+  ul.innerHTML = "";
+
+  list.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = `${p.name} - ₹${p.price}`;
+    ul.appendChild(li);
+  });
+
+  const total = list.reduce((sum, p) => sum + p.price, 0);
+  document.getElementById("totalPrice").textContent = total;
+}
+
+// initial render using FOR EACH loop
+renderList(products);
+
+function showFiltered() {
+  const choice = document.getElementById("filterSelect").value;
+
+  if (choice === "cheap") {
+    const filtered = products.filter(p => p.price < 500);
+    renderList(filtered);
+  } else {
+    renderList(products);
+  }
+}
+
+// ----- Highest Score Finder using Loop + IF -----
+const students = [
+  { name: "Amina", score: 88 },
+  { name: "Rohan", score: 92 },
+  { name: "Sanjay", score: 76 },
+  { name: "Meera", score: 95 },
+  { name: "John", score: 81 }
+];
+
+function findTopper() {
+  let top = students[0];
+
+  for (let i = 1; i < students.length; i++) {
+    if (students[i].score > top.score) {
+      top = students[i];
+    }
+  }
+
+  document.getElementById("topperResult").textContent =
+    `Topper: ${top.name} with Score ${top.score}`;
+}
+</script>
+
+</body>
+</html>
