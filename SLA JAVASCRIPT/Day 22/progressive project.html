@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+<style>
+    
+body {
+    font-family: Poppins, sans-serif;
+    background: #121212;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+#mainTitle {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tagline {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#colorBtn {
+    background: #4CAF50;
+    color: white;
+}
+
+#addProjectBtn {
+    background: #2196F3;
+    color: white;
+}
+
+#darkModeBtn {
+    background: #FF9800;
+    color: white;
+}
+
+#projectsContainer {
+    margin-top: 30px;
+}
+
+.project-card {
+    background: #1e1e1e;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-left: 4px solid #FF9800;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    background: #292929;
+}
+
+#projectForm {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px auto;
+}
+
+#projectForm input, #projectForm textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    margin: 8px 0;
+}
+
+#projectForm input[type="submit"] {
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1 id="mainTitle">My Portfolio</h1>
+<p class="tagline">Building the future, one design at a time.</p>
+
+<div style="text-align:center;">
+    <button id="colorBtn">Change Theme</button>
+    <button id="darkModeBtn">Toggle Dark Mode</button>
+    <button id="addProjectBtn">Add New Project</button>
+</div>
+
+<form id="projectForm">
+    <h3 style="text-align:center;">Add Project</h3>
+    <input type="text" id="pName" placeholder="Project Name">
+    <textarea id="pDesc" placeholder="Project Description"></textarea>
+    <input type="submit" value="Submit Project">
+</form>
+
+<div id="projectsContainer">
+    <section class="project-card">
+        <h2>Employee Retention ML 📊</h2>
+        <p>Machine Learning project predicting employee retention and layoffs.</p>
+    </section>
+
+    <section class="project-card">
+        <h2>UI/UX Portfolio Design 🎨</h2>
+        <p>Modern portfolio design showcasing UX case studies and UI projects.</p>
+    </section>
+</div>
+
+
+<script>
+
+document.getElementById("mainTitle").innerText = "My Interactive Portfolio";
+
+document.querySelector(".tagline").style.color = "cyan";
+
+document.getElementById("colorBtn").addEventListener("click", function() {
+    document.body.style.backgroundColor = "#ffffff";
+    document.body.style.color = "#000000";
+});
+
+
+let dark = true;
+document.getElementById("darkModeBtn").addEventListener("click", function() {
+    dark = !dark;
+    if(dark) {
+        document.body.style.background = "#121212";
+        document.body.style.color = "white";
+    } else {
+        document.body.style.background = "#f4f4f4";
+        document.body.style.color = "black";
+    }
+});
+
+
+document.getElementById("addProjectBtn").addEventListener("click", function() {
+    const newSection = document.createElement("section");
+    newSection.className = "project-card";
+    newSection.innerHTML = `
+        <h2>New Project 🚀</h2>
+        <p>Added dynamically using DOM manipulation.</p>
+    `;
+    document.getElementById("projectsContainer").appendChild(newSection);
+});
+
+document.getElementById("mainTitle").addEventListener("mouseover", function() {
+    this.style.color = "orange";
+});
+document.getElementById("mainTitle").addEventListener("mouseout", function() {
+    this.style.color = dark ? "white" : "black";
+});
+
+
+document.getElementById("projectForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("pName").value.trim();
+    const desc = document.getElementById("pDesc").value.trim();
+
+    if(name === "" || desc === "") {
+        alert("⚠ Please fill in all fields!");
+        return;
+    }
+
+    const projectCard = document.createElement("section");
+    projectCard.className = "project-card";
+    projectCard.innerHTML = `
+        <h2>${name} ⭐</h2>
+        <p>${desc}</p>
+    `;
+
+    document.getElementById("projectsContainer").appendChild(projectCard);
+
+    // Clear form after adding
+    document.getElementById("pName").value = "";
+    document.getElementById("pDesc").value = "";
+
+    alert("Project Added Successfully! 🎉");
+});
+
+// 8. Auto-add 3 sample projects using loop
+const sampleProjects = [
+    { title: "Python Fullstack Blog 🐍", desc: "Blog app with frontend + backend." },
+    { title: "E-Commerce UI 🛍", desc: "Product UI built using DOM." },
+    { title: "Weather App API ☁", desc: "Real-time weather using fetch()." }
+];
+
+sampleProjects.forEach(proj => {
+    const card = document.createElement("section");
+    card.className = "project-card";
+    card.innerHTML = `<h2>${proj.title}</h2><p>${proj.desc}</p>`;
+    document.getElementById("projectsContainer").appendChild(card);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="v">
+  <input id="x" placeholder="Field 1">
+  <input id="y" placeholder="Field 2">
+  <button>Check</button>
+  <p id="er"></p>
+</form>
+<script>
+v.onsubmit = e => {
+  e.preventDefault()
+  er.textContent = (!x.value || !y.value) ? "Empty!" : "Valid!"
+}
+</script>
+
+</body>
+</html>

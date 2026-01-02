@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Handling Demo</title>
+  <style>
+    body { font-family: Poppins, sans-serif; padding: 20px; }
+    input { display:block; margin:10px 0; padding:8px; width:250px; }
+    #errorMsg, #apiError { color:red; margin-top:10px; }
+    #apiError { background:#ffe6e6; padding:10px; border-left:4px solid red; width:300px; display:none; }
+    button { padding:10px 15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>Submit Form</h2>
+
+  <input id="name" placeholder="Enter Name"/>
+  <input id="email" placeholder="Enter Email"/>
+  <p id="errorMsg"></p>
+
+  <button onclick="validateForm()">Submit</button>
+
+  <h2>API Data Fetch</h2>
+  <button onclick="getData()">Load API Data</button>
+  <div id="apiError"></div>
+
+  <script>
+
+    // 1. Form Validation with Error Handling
+    function validateForm() {
+      try {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!name || !email) {
+          throw new Error("All form fields are required!");
+        }
+        if (!emailRegex.test(email)) {
+          throw new Error("Please enter a valid email address!");
+        }
+
+        document.getElementById("errorMsg").innerText = "";
+        alert("Form submitted successfully!");
+
+      } catch (err) {
+        document.getElementById("errorMsg").innerText = err.message;
+        console.error("Validation Error:", err);
+        logError(err);
+      }
+    }
+
+    // 2. API Call with Retry + try/catch
+    async function apiWithRetry(url, retries = 3) {
+      try {
+        const res = await fetch(url);
+
+        if (!res.ok) {
+          throw new Error(`API failed with status ${res.status}`);
+        }
+
+        return await res.json();
+
+      } catch (err) {
+        if (retries > 0) {
+          console.warn(`Retrying API... attempts left: ${retries}`);
+          return apiWithRetry(url, retries - 1);
+        }
+        throw err;
+      }
+    }
+
+    // 3. Fetch API Data and Handle Failures
+    async function getData() {
+      try {
+        const data = await apiWithRetry("https://jsonplaceholder.typicode.com/users/invalid-endpoint");
+        console.log("API Success:", data);
+        document.getElementById("apiError").style.display = "none";
+
+      } catch (err) {
+        showErrorToUser("Failed to fetch data. Please check your internet or try again.");
+        console.error("API Error:", err);
+        logError(err);
+      }
+    }
+
+    // 4. Show Friendly Error in UI
+    function showErrorToUser(message) {
+      const errorBox = document.getElementById("apiError");
+      errorBox.innerText = message;
+      errorBox.style.display = "block";
+    }
+
+    // 5. Log Error Details for Debugging
+    function logError(error) {
+      console.error("Logged Error:", {
+        message: error.message,
+        stack: error.stack,
+        time: new Date().toISOString()
+      });
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="todoInput" placeholder="Enter task">
+<button onclick="addTodo()">Add</button>
+<ul id="todoList"></ul>
+
+<script>
+function addTodo() {
+  const text = document.getElementById("todoInput").value;
+  if (!text) return;
+
+  const li = document.createElement("li");
+  li.innerText = text;
+
+  li.addEventListener("click", () => {
+    document.getElementById("todoList").removeChild(li);
+  });
+
+  document.getElementById("todoList").appendChild(li);
+  document.getElementById("todoInput").value = "";
+}
+</script>
+
+</body>
+</html>
