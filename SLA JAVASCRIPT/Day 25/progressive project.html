@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Closure + Async Progressive App</title>
+  <style>
+    body { padding: 20px; font-family: Arial, sans-serif; }
+    #log { margin-top: 15px; background: #f5f5f5; padding: 10px; height: 120px; overflow-y: auto; }
+    button { padding: 8px 12px; margin-right: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Secure Counter (Private State using Closure)</h2>
+  <button id="incBtn">Increment</button>
+  <button id="decBtn">Decrement</button>
+  <p>Count: <span id="countVal">0</span></p>
+
+  <h2>Async API Data Fetch (Non-blocking UI)</h2>
+  <button id="loadBtn">Load Data</button>
+  <p>Status: <span id="status">Idle</span></p>
+
+  <div id="log"></div>
+
+<script>
+
+const logger = (() => {
+  const logs = []; 
+  return {
+    add(msg) {
+      const timestamp = new Date().toISOString();
+      logs.push({ msg, timestamp });
+      document.getElementById("log").innerHTML += `[${timestamp}] ${msg}<br/>`;
+    },
+    getAll() {
+      return logs;
+    }
+  };
+})();
+
+
+function createSecureCounter() {
+  let count = 0;
+  return {
+    increment() {
+      count++;
+      return count;
+    },
+    decrement() {
+      if(count === 0) {
+        throw new Error("Counter cannot go below 0");
+      }
+      count--;
+      return count;
+    },
+    getCount() {
+      return count;
+    }
+  };
+}
+
+const counter = createSecureCounter();
+
+document.getElementById("incBtn").addEventListener("click", () => {
+  const val = counter.increment();
+  document.getElementById("countVal").textContent = val;
+  logger.add("Counter incremented");
+});
+
+document.getElementById("decBtn").addEventListener("click", () => {
+  try {
+    const val = counter.decrement();
+    document.getElementById("countVal").textContent = val;
+    logger.add("Counter decremented");
+  } catch(err) {
+    logger.add("Error: " + err.message);
+    console.error(err); 
+} });
+
+
+const ApiService = {
+  async fetchData() {
+    
+    await new Promise(res => setTimeout(res, 1000));
+    
+    const success = Math.random() > 0.3; 
+    if(!success) {
+      throw new Error("Failed to fetch data from API");
+    }
+
+    return { data: ["Employee A", "Employee B", "Employee C"] };
+  }
+};
+
+
+document.getElementById("loadBtn").addEventListener("click", async () => {
+  document.getElementById("status").textContent = "Loading...";
+  logger.add("API request started");
+
+  try {
+    const response = await ApiService.fetchData();
+    document.getElementById("status").textContent = "Data Loaded";
+    logger.add("API Success: " + JSON.stringify(response.data));
+  } catch(err) {
+    document.getElementById("status").textContent = "Error!";
+    logger.add("API Error: " + err.message);
+    console.error("API Debug Log:", err);
+  } finally {
+    logger.add("API request ended");
+  }
+});
+</script>
+
+</body>
+</html>

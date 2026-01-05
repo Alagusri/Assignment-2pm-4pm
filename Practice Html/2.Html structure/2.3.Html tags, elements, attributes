@@ -40,4 +40,4 @@ Html attribute:
     | `id`      | any tag     | Unique identifier |
     | `class`   | any tag     | Group styling     |
     | `style`   | any tag     | Inline CSS        |
-
+    |___________|_____________|___________________|
