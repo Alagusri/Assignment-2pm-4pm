@@ -1,0 +1,7 @@
+ __________________________________________________________________________________________________
+| Layer                  | Purpose                               | Technologies                    |
+| -----------------------| --------------------------------------|---------------------------------|
+| Frontend (Client Side) | What users see & interact with        | HTML, CSS, JavaScript           |
+| Backend (Server Side)  | Processes data, logic, authentication | Python, Java, Node.js, C#, etc. |
+| Database               | Stores data permanently               | MySQL, MongoDB, PostgreSQL      |
+|__________________________________________________________________________________________________|

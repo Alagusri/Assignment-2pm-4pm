@@ -1,0 +1,43 @@
+Html tag:
+    A tag is a keyword enclosed in < > used to define content.
+
+    E.g:
+
+    <h1></h1>
+    <p></p>
+    <img>
+    <a></a>
+
+    most tags have opening and closing <p> </p>...
+    some tags are selfclosing/ empty <img> , <br>...
+
+Html element:
+    html elements include opening tag + content + closing tag.
+
+    <p> --> opening tag
+    this is an content --> content
+    </p> --> closing tag
+    Full line = html element
+
+    E.g:
+
+    <h1>website</h1>
+
+    <a href="#">click</a>
+
+Html attribute:
+    Attributes give a extra information to a tags.
+    They are written inside the opening tag in key="value" format.
+
+    E.g:
+    -
+     _____________________________________________
+    | Attribute | Used in Tag | Purpose           |
+    | --------- | ----------- | ----------------- |
+    | `href`    | `<a>`       | Link URL          |
+    | `src`     | `<img>`     | Image path        |
+    | `alt`     | `<img>`     | Alternative text  |
+    | `id`      | any tag     | Unique identifier |
+    | `class`   | any tag     | Group styling     |
+    | `style`   | any tag     | Inline CSS        |
+
