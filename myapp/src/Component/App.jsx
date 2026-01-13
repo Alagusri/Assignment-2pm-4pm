@@ -19,7 +19,10 @@ function App() {
         <Button brs={handleClick}>click me</Button>
 
         <UserCard name="Arun" age={25} isOnline ={true} skills={["React", "JS", "Angular"]}/>
-
+        <card>
+            <h2>Welcome to Ar's class</h2>
+            <p>this is the children i will pass</p>
+        </card>
         </>
     )
 }
