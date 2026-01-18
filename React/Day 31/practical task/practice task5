@@ -1,0 +1,3 @@
+5. Correct JSX syntax errors
+
+<h1 className="title">Hello React</h1>
