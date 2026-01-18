@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Data App</title>
+</head>
+<body>
+
+  <h2>User Data App</h2>
+  <button id="loadData">Load Users</button>
+
+  <ul id="userList"></ul>
+
+  <p id="savedUser"></p>
+
+  <script>
+    const API_URL = "https://jsonplaceholder.typicode.com/users";
+    const list = document.getElementById("userList");
+    const savedUser = document.getElementById("savedUser");
+
+ 
+    const stored = localStorage.getItem("selectedUser");
+    if (stored) {
+      const user = JSON.parse(stored);
+      savedUser.textContent = "Saved User: " + user.name;
+    }
+
+    document.getElementById("loadData").addEventListener("click", () => {
+      fetch(API_URL)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("API Failed");
+          }
+          return response.json();
+        })
+        .then(data => {
+          list.innerHTML = "";
+
+          data.forEach(user => {
+            const li = document.createElement("li");
+            li.textContent = user.name;
+
+            li.onclick = () => {
+              localStorage.setItem(
+                "selectedUser",
+                JSON.stringify(user)
+              );
+              savedUser.textContent = "Saved User: " + user.name;
+            };
+
+            list.appendChild(li);
+          });
+        })
+        .catch(error => {
+          console.error(error);
+          alert("Something went wrong!");
+        });
+    });
+  </script>
+
+</body>
+</html>

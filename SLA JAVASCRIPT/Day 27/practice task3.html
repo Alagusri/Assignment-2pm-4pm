@@ -1,0 +1,9 @@
+<p id="savedName"></p>
+
+<script>
+  const saved = localStorage.getItem("username");
+  if (saved) {
+    document.getElementById("savedName").textContent =
+      "Saved Name: " + saved;
+  }
+</script>

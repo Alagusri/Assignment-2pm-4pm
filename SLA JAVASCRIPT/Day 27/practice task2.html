@@ -1,0 +1,10 @@
+<input type="text" id="username" placeholder="Enter name">
+<button onclick="saveName()">Save</button>
+
+<script>
+  function saveName() {
+    const name = document.getElementById("username").value;
+    localStorage.setItem("username", name);
+    alert("Name saved!");
+  }
+</script>
